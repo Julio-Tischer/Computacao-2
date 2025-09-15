@@ -1,0 +1,70 @@
+//Faça um programa em c que:
+//1. Uma função para alocar dinamicamente uma string com um tamnho definido pelo usuario
+//2. leia a string e a coloque no vetor alcoado no item 1
+//3. Uma funclai que mostre a string na tela
+//4. Uma funcção que libere o espaço de memoria alocado para a string
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<malloc.h>
+
+char* alocaStr(int);
+void printStr(char*);
+void freeStr(char*);
+
+int main()
+{
+    char* nome=NULL; //String a ser alocada
+    int tamanho; //Tamanho da string a ser alocada
+
+    //Pedir tamanho de string
+    printf("Qual o tamanho da string a ser alocada?\t");
+    scanf("%d",&tamanho);
+    getchar();
+
+    //Anotar a string
+    nome = alocaStr(tamanho+2);
+    //recebe o nome e coloca no endereço da nome
+    fgets(nome,tamanho+2,stdin);
+
+    //Mostrar a string na tela
+    printStr(nome);
+
+    //Liberar a string
+    freeStr(nome);
+
+    return 0;
+
+}
+
+char* alocaStr(int tamanho)
+{
+    char* string=NULL;
+    printf("\n\nDigite a string:\t");
+
+    //Aloca para string tamanho espaços de memoria
+    string = (char*)malloc(tamanho * sizeof(int));
+
+    //Verificar erros de alocation
+    if (string == NULL)
+    {
+        printf("\n\nERRO DE ALOCAÇÃO");
+        exit (0);
+    }
+
+    //Passa o endereço da string
+    return string;
+}
+
+void printStr(char* string)
+{
+    printf("String é: %s \n\n",string);
+
+}
+
+void freeStr(char* string)
+{
+    free(string);
+}
