@@ -6,7 +6,7 @@ int main()
 {
 
     //Declarar matrizes de char, buffer e ponteiro de arquivo
-    char** cpf;
+    char** cpf =NULL;
     char buffer[100];
     char** nome =NULL;
     FILE* espionagem = NULL;
@@ -76,8 +76,8 @@ int main()
     //Zerar o cpf e o nome
     for (int i=0;i<3;i++)
     {
-        cpf[i] = 0;
-        nome[i]= NULL;
+        free (cpf[i]);
+        free (nome[i]);
     }
 
     //Abrir o aqruivo para ler
