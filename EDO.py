@@ -109,24 +109,6 @@ def exact_Solutions (EDO_ExactSol,start_Point,end_Point,steps):
     return resultsTable
 
 
-"""def error_Calc(table):
-    cabeçalho = ['Xi','Erro Euler','Erro Pmedio', 'Erro Euler Melhorado']
-
-    #Criar uma tabela de resultados do tamanho da tabela original
-    rows , colunms = table.shape
-    result = np.zeros((rows-1,colunms-1))
-    
-    #Para todas as linhas
-    for i in range(len(table)-1):
-
-        
-    
-    return result"""
-
-
-
-
-
 #O "int main() " fica aqui
 
 r_Euler = met_Euler(edo_Function,0,2,5,-2)
